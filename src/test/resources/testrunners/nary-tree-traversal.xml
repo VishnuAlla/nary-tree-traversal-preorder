@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Nary Tree Traversal" parallel="tests">
+    <test name="Nary Tree Traversal Test">
+        <classes>
+            <class name="com.nary.tests.NaryTreeTraversalTest">
+            </class>
+        </classes>
+    </test>
+</suite>
