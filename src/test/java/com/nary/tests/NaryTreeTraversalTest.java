@@ -28,7 +28,6 @@ public class NaryTreeTraversalTest {
         driver = DriverFactory.createDriver(BuildFactory.ConfigObject().getBrowser());
         driver.get(BuildFactory.ConfigObject().getApplicationUrl());
         logger.log(LogStatus.PASS, "Browser Launched");
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test(description = "This test performs the traversal through all the possible paths in the decision tree")

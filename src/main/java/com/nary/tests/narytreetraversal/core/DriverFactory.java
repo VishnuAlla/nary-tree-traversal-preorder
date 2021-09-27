@@ -42,7 +42,7 @@ public class DriverFactory {
                 break;
         }
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         return new EventFiringWebDriver(webDriver);
     }
 

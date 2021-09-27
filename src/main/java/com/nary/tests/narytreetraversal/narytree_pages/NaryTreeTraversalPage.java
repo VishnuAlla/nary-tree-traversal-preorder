@@ -14,7 +14,7 @@ public class NaryTreeTraversalPage {
     public NaryTreeTraversalPage(WebDriver driver){this.driver=driver;}
 
     public void treeTraversal()  {
-        WebDriverWait wait = new WebDriverWait(driver,10);
+        WebDriverWait wait = new WebDriverWait(driver,20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(WIDGET_BUTTON_FRAME));
         WebElement beacon_button=driver.findElement(WIDGET_BUTTON_FRAME);
         driver.switchTo().frame(beacon_button);
@@ -28,6 +28,8 @@ public class NaryTreeTraversalPage {
 
         driver.switchTo().defaultContent();
 
+        WebDriverWait wait1 = new WebDriverWait(driver,4);
+        wait1.until(ExpectedConditions.visibilityOfElementLocated(WIDGET_HIDE_FRAME));
         WebElement widget_hide=driver.findElement(WIDGET_HIDE_FRAME);
         driver.switchTo().frame(widget_hide);
         System.out.println("Switched to the chat iframe");
