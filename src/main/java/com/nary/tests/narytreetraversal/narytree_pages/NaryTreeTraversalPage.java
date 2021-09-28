@@ -10,6 +10,7 @@ import java.util.List;
 
 public class NaryTreeTraversalPage {
     WebDriver driver;
+    String emailAddress="venusvishnu@gmail.com";
 
     public NaryTreeTraversalPage(WebDriver driver){this.driver=driver;}
 
@@ -61,6 +62,8 @@ public class NaryTreeTraversalPage {
     }
 
     public void processSibling(WebElement option){
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].scrollIntoView()", option);
         option.click();
         List<WebElement> siblings = driver.findElements(OPTIONS);
         boolean next=false;
@@ -75,6 +78,8 @@ public class NaryTreeTraversalPage {
     }
 
     public WebElement processChild(WebElement option){
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].scrollIntoView()", option);
         option.click();
 
         List<WebElement> clickedOptions = driver.findElements(LAST_SELECTED_OPTION);
@@ -88,6 +93,14 @@ public class NaryTreeTraversalPage {
         if(children.size()==1){
             List<WebElement> submitButton=option.findElements(SUBMIT_BUTTON);
             if(submitButton.size()>0) {
+                try{
+                    WebElement emailField=driver.findElement(EMAIL_FIELD);
+                    if(emailField!=null){
+                        emailField.sendKeys(emailAddress);
+                    }
+                }catch (NoSuchElementException noSuchElementException) {}
+
+                driver.findElement(MESSAGE_FIELD).sendKeys("Sample Message");
                 submitButton.get(0).click();
                 return lastClicked;
             }
@@ -96,4 +109,5 @@ public class NaryTreeTraversalPage {
         huntThumbsUp(child);
         return lastClicked;
     }
+
 }
