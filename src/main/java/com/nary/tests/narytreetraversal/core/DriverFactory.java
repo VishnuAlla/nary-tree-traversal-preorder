@@ -25,7 +25,7 @@ public class DriverFactory {
                 System.setProperty("webdriver.http.factory", "apache");
 
                 ProfilesIni profile = new ProfilesIni();
-                FirefoxProfile testprofile = profile.getProfile("solvemate");
+                FirefoxProfile testprofile = profile.getProfile("test");
                 testprofile.setAcceptUntrustedCertificates(true);
                 testprofile.setAssumeUntrustedCertificateIssuer(true);
                 testprofile.setPreference("security.insecure_field_warning.contextual.enabled", false);
